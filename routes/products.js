@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var fetch = require("node-fetch");
+require("encoding");
 
 const getData = async () => {
   try {
