@@ -9,9 +9,11 @@ const getData = async () => {
     const response = await fetch(
       "https://openapi.etsy.com/v2/shops/DaliaBotanique/listings/active?&api_key=rxny6jmxqxkh4lsii4tzu26g&includes=MainImage,Images"
     );
+    console.log("in try", response);
     const data = await response.json();
     return data.results;
   } catch (error) {
+    console.log("in catch");
     console.error(error);
   }
 };
