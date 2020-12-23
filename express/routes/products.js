@@ -4,6 +4,7 @@ var fetch = require("node-fetch");
 require("encoding");
 
 const getData = async () => {
+  console.log("GETDATA");
   try {
     const response = await fetch(
       "https://openapi.etsy.com/v2/shops/DaliaBotanique/listings/active?&api_key=rxny6jmxqxkh4lsii4tzu26g&includes=MainImage,Images"
@@ -16,6 +17,7 @@ const getData = async () => {
 };
 
 router.get("/", async (req, res, next) => {
+  console.log("PRODUCTS");
   let response = await getData();
   res.send(response);
 });
