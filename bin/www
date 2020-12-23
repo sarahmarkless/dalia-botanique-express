@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require("../app");
+var app = require("../express/server");
 var debug = require("debug")("dalia-botanique-express:server");
 var http = require("http");
 
