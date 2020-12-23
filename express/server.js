@@ -36,15 +36,18 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/products", productsRouter);
+app.use("/.netlify/functions/server/products", productsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
+  console.log({ req });
   next(createError(404));
 });
 
 // error handler
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
+  console.log({ req });
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
