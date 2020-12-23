@@ -6,8 +6,8 @@ var logger = require("morgan");
 var cors = require("cors");
 var serverless = require("serverless-http");
 
-var indexRouter = require("../routes/index");
-var productsRouter = require("../routes/products");
+var indexRouter = require("./routes/index");
+var productsRouter = require("./routes/products");
 
 var app = express();
 
