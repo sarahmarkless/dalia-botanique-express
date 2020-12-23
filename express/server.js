@@ -7,7 +7,7 @@ var cors = require("cors");
 var serverless = require("serverless-http");
 
 var indexRouter = require("./routes/index");
-var productsRouter = require("./routes/products");
+// var productsRouter = require("./routes/products");
 
 var app = express();
 
@@ -18,7 +18,6 @@ var whitelist = [
 ];
 var corsOptions = {
   origin: function (origin, callback) {
-    console.log("origin", origin);
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
@@ -40,14 +39,12 @@ app.use("/.netlify/functions/server/products", productsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  console.log({ req });
   next(createError(404));
 });
 
 // error handler
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
-  console.log({ req });
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
